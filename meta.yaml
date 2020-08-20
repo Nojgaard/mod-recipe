@@ -1,0 +1,49 @@
+package:
+        name: mod
+        version: 0.10
+
+source:
+        git_url: https://github.com/jakobandersen/mod.git
+
+build:
+        skip: True  # [win]
+        number: 0
+
+requirements:
+        build:
+                - {{ compiler('c') }}
+                - {{ compiler('cxx') }}
+                - pkg-config               # [linux]
+                - cmake                    # [linux]
+
+        host:
+                - python=3.7
+                - openbabel=2.4.1
+                - boost-cpp=1.71
+                - boost=1.71
+                - graphviz
+                - pdf2svg
+                - sphinx
+        run:
+                - python=3.7
+                - openbabel=2.4.1
+                - boost-cpp=1.71
+                - boost=1.71
+                - graphviz
+                - pdf2svg
+                - sphinx
+
+test: 
+        commands:
+                - mod --version
+                - mod -e "smiles('CC')"
+        files:
+                - test.py
+
+about:
+        home: https://github.com/jakobandersen/mod
+        summary:  MedØlDatschgerl (MØD)
+        description: | 
+                This is a software package developed for graph-based cheminformatics. 
+                For more information, see http://mod.imada.sdu.dk.
+        doc_url: https://jakobandersen.github.io/mod/
