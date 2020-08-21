@@ -37,8 +37,6 @@ test:
         commands:
                 - mod --version
                 - mod -e "smiles('CC')"
-        files:
-                - test.py
 
 about:
         home: https://github.com/jakobandersen/mod
